@@ -1,0 +1,92 @@
+% Main orginaly desigend for 5th Order Trajectory
+% If you requested to Double S Cruve Traj pn main code,use with "Padding" code listed on scr file.
+
+function [t, q, v, a, j] = Double_S_cruve_traj(T_seg, qs , qf)
+
+
+amax=50;
+Jmax=100;
+
+delta= (qf - qs);
+abs_delta= abs(delta);
+J_sign = sign(delta);
+
+J_val=J_sign*Jmax;
+A_val = J_sign*amax;
+
+Tj=amax/Jmax;
+
+V_avg = abs_delta / T_seg;
+
+
+
+
+t1 = Tj; 
+t2 = Ta_cons + t1; 
+t3 = Tj + t2;
+t4 = Tv + t3;
+t5 = Tj + t4; 
+t6 = Ta_cons+ t5; 
+t7 =Tj + t 6; 
+
+
+ time_vec = 0:dt:T;
+ n_steps = length(time_vec);
+ 
+ p = zeros(1, n_steps);
+ v = zeros(1, n_steps);
+ a = zeros(1, n_steps);
+ j = zeros(1, n_steps);
+
+for ti = 1:n_steps
+
+    if ti<t1
+        j = Jmax;
+        a = Jmax*ti;%Amax
+        v = Jmax*ti^2/2;
+        p = Jmax*ti^3/6;
+
+        a1 = Jmax*Tj;
+        v1 = Jmax*Tj^2/2;
+        p1 = Jmax*Tj^3/6;
+
+    elseif t2>ti|| ti>t1
+        j = 0;
+        a = a1;
+        v = a1*ti + v1;
+        p = a1*ti^2/2 + v1*ti + p1;
+
+        a2 = a1;
+        v2 = a1*Ta_cons + v1;
+        p2 = a1*Ta_cons^2/2 + v1*Ta_cons + p1;
+     
+    elseif t3>ti|| ti>t2 
+        j = -Jmax;
+        a = -Jmax*ti + a2;
+        v = -Jmax*ti^2/2 + a2*ti + v2;
+        p = -Jmax*ti^3/6 + a2*ti^2/2 + v2*ti + p2;
+        
+
+        a3 = 0;
+        v3 = -Jmax*Tj^2/2 + a2*Tj + v2;
+        p3 = -Jmax*Tj^3/6 + a2*Tj^2/2 + v2*Tj + p2;
+
+     elseif t4>ti|| ti>t3       
+
+         j=0;
+         a=0;
+         v= v3;
+         p=v3*ti + p3;
+       
+           
+         a4=0;
+         v4= v3;
+         p4=v3*Tv + p3;
+
+    elseif t5>ti|| ti>t4   
+        j = -Jmax;
+        a = -Jmax*ti;
+        v = -Jmax*ti^2/2 + v4;
+
+
+
