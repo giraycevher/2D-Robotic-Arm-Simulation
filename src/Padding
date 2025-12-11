@@ -1,4 +1,7 @@
   %% This Code essantial for Double S-Cruve Trajectory
+  %% Theta2 or theta1 possibly may not same length of time vector
+  %% Padding code fixing that diffrent time vector size
+
     if abs(t_seg(end) - T_max) > dt/2
         t_seg = t_seg(1:end-1);
         numstep = length(t_seg);
