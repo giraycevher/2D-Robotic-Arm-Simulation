@@ -88,5 +88,7 @@ for ti = 1:n_steps
         a = -Jmax*ti;
         v = -Jmax*ti^2/2 + v4;
 
+end
+
 
 
