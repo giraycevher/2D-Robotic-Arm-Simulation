@@ -19,7 +19,7 @@ Core Concepts: Robotics, Control Theory, System Dynamics, Numerical Simulation
 
 <img width="1641" height="754" alt="image" src="https://github.com/user-attachments/assets/e3b54348-0258-4e52-a134-57baf57db4ed" />
 
-![robot_simulasyon](https://github.com/user-attachments/assets/eb36930c-ffd9-467b-9b7a-d5aaaea77962)
+
 
 
 > The graph above demonstrates the computed torque values required for the manipulator to follow the planned trajectory under gravity and dynamic effects.
