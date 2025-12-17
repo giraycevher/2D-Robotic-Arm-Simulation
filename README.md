@@ -1,25 +1,44 @@
-Project Title: 2-Link Planar Robotic Arm Simulation
+# 2-DOF Planar Robot Manipulator Control Simulation
+%Giray Cevher Eser
 
- Project Overview :
- This project provides a comprehensive MATLAB-based framework for simulating a 2-DOF planar robotic arm. It integrates kinematic solvers with rigid dynamic analysis to simulate  robotic maniupulator.
+This project implements a complete **Dynamic Modeling and Control** framework for a 2-DOF planar robotic arm. It demonstrates the application of **Lagrangian Dynamics**, **Computed Torque Control (CTC)**, and **S-Curve Trajectory Planning** to achieve high-precision motion with minimized jerk.
 
- 
- Key Technical Modules:
- 
- Trajectory Planning: Implementation of 5th-order polynomials, S-Curve, and Double S-Curve algorithms to ensure smooth, jerk-limited motion profiles.
- 
- Kinematics: precise geometric solutions for Forward Kinematics (end-effector position) and Inverse Kinematics (joint angle calculation).
- 
- Dynamics: Full dynamic modeling using the Euler-Lagrange formulation, accounting for the Mass Matrix M(q), Centripetal/Coriolis effects C(q,q˙​), and Gravity vectors    
- G(q).
- 
- Visualization: Real-time animation of the arm coupled with comparative plotting of torque, velocity, and acceleration data.
+## Key Features
+
+Advanced Trajectory Planning:Uses Quintic Polynomials and Double S-Curve profiles to ensure continuous acceleration and reduced mechanical stress (Jerk control).
+  Physics-Based Modeling:** Full dynamic model derivation using the Lagrangian Formulation, including explicit calculation of Mass, Centripetal/Coriolis, and Gravity matrices.
+  Nonlinear Control:** Implementation of **Computed Torque Control (CTC)** (Feedback Linearization) for precise trajectory tracking.
+  Inverse Kinematics:** Geometric solution for 2-DOF planar manipulator.
+
+##  Tech Stack
+
+Language: MATLAB
+Core Concepts: Robotics, Control Theory, System Dynamics, Numerical Simulation
+
+#Simulation Results
+
+<img width="1641" height="754" alt="image" src="https://github.com/user-attachments/assets/e3b54348-0258-4e52-a134-57baf57db4ed" />
 
 
-Supervision and Mentorship :
+> The graph above demonstrates the computed torque values required for the manipulator to follow the planned trajectory under gravity and dynamic effects.
 
-This project was developed under the expert supervision of Raşit Muhammed Evdüzen.
+## Project Structure
 
-Role: Technical Mentor & Major Contributor.
+* `main.m`: Entry point for the simulation. Runs the control loop and visualizations.
+* `Mass_Matrix.m`: Calculates the inertia matrix $M(q)$.
+* `Centripetal_Matrix.m`: Calculates Coriolis and Centrifugal terms $C(q, \dot{q})$.
+* `Gravity_Matrix.m`: Computes gravity vectors $G(q)$.
+* `fifth_order_trajectory.m`: Generates jerk-limited trajectory profiles.
 
-Contribution: He provided foundational guidance on the control theory architecture and made significant contributions to the implementation of the dynamic modeling  algorithms. His mentorship was pivotal in ensuring the analytical accuracy of the simulation.
+# How to Run
+
+1.  Clone the repository:
+    ```bash
+    git clone [https://github.com/giraycevher/2dof-robot-sim.git](https://github.com/giraycevher/2dof-robot-sim.git)
+    ```
+2.  Open `main.m` in MATLAB.
+3.  Run the script. The simulation window will visualize the robot motion and torque profiles.
+
+
+---
+*Developed by Giray Cevher Eser*
