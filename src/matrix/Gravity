@@ -1,4 +1,4 @@
-function [G_matris]=Gravity_matris(tetha1_rad,tetha2_rad,L1,L2,m1,m2)
+function [G_matris]=Gravity_matrix(tetha1_rad,tetha2_rad,L1,L2,m1,m2)
 l1=L1/2;
 l2=L2/2;
 g= 9.81;
