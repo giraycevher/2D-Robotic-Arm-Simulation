@@ -42,7 +42,7 @@ mid_link_Path = [];
 %% Main Control Loop
 for j = 2:size(workspace_traj, 1)
     
-    % --- 1. Inverse Kinematics (End-points) ---
+    %  Inverse Kinematics (End-effector)
     % Calculate joint angles for the start point (Previous waypoint)
     [qs1_r, qs2_r] = get_inverse_kinematics(workspace_traj(j-1, 1), workspace_traj(j-1, 2), link_length_mm, solution_selection);
     
@@ -53,7 +53,7 @@ for j = 2:size(workspace_traj, 1)
     qs1 = rad2deg(qs1_r); qs2 = rad2deg(qs2_r);
     qf1 = rad2deg(qf1_r); qf2 = rad2deg(qf2_r);
     
-    % --- 2. Trajectory Generation (Quintic Polynomial) ---
+    % Trajectory Generation (Quintic Polynomial) 
     % Generates smooth position, velocity, and acceleration profiles
     [q1, v1, a1, t1] = fifth_order_trajectory(qs1, qf1, T_sim, dt);
     [q2, v2, a2, t2] = fifth_order_trajectory(qs2, qf2, T_sim, dt);
@@ -82,7 +82,7 @@ for j = 2:size(workspace_traj, 1)
     
     torque_seg = zeros(size(q1, 1), 2);
     
-    % --- 3. Inverse Dynamics (Computed Torque) ---
+    %  Inverse Dynamics 
     for i = 1:numstep
         theta1 = q_seg(i, 1);
         theta2 = q_seg(i, 2);
