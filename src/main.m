@@ -1,7 +1,7 @@
 %% 2-DOF Planar Robot Manipulator Simulation
 % Includes Inverse Kinematics, Quintic Trajectory Planning, and Inverse Dynamics.
-% Author: [Senin Adın]
-% Date: [Tarih]
+
+%12/03/2025
 
 clc;
 clear;
