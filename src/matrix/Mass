@@ -1,4 +1,4 @@
-function [M_matris]=Mass_matris(tetha2,L1,L2,m1,m2)
+function [M_matris]=Mass_matrix(tetha2,L1,L2,m1,m2)
 l1=L1/2; 
 l2=L2/2; 
 
