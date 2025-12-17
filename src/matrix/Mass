@@ -1,8 +1,8 @@
-function [M_matris]=Mass_matrix(tetha2,L1,L2,m1,m2)
+function [M_matris]=Mass_matrix(theta2,L1,L2,m1,m2)
 l1=L1/2; 
 l2=L2/2; 
 
-c2=cos(tetha2);
+c2=cos(theta2);
 %radyan
 M11 = m1*l1^2 + m2*(L1^2 + l2^2 + 2*L1*l2*c2);
 M12 = m2*(l2^2 + L1*l2*c2);
