@@ -1,5 +1,7 @@
 # 2-DOF Planar Robot Manipulator Control Simulation
-%Giray Cevher Eser
+Giray Cevher Eser
+I would like to thank Raşit Evdüzen for his supervision and significant contributions to the development of this code.
+
 
 This project implements a complete **Dynamic Modeling and Control** framework for a 2-DOF planar robotic arm. It demonstrates the application of **Lagrangian Dynamics**, **Computed Torque Control (CTC)**, and **S-Curve Trajectory Planning** to achieve high-precision motion with minimized jerk.
 
