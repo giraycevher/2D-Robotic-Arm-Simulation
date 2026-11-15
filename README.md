@@ -2,7 +2,7 @@
 
 A MATLAB framework for the dynamic modeling and control of a 2-DOF planar robotic arm. It combines **Lagrangian dynamics**, **Computed Torque Control (CTC)** and **S-curve trajectory planning** to track smooth trajectories with limited jerk.
 
-![Robot motion](robot_simulasyon.gif)
+![Robot motion](robot_Arm_Sİm.gif)
 
 ## Key Features
 
@@ -38,9 +38,9 @@ The graph shows the torques required for the manipulator to follow the planned t
 ```
 ├── src/
 │   ├── main.m                    # Entry point: runs the control loop and visualizations
-│   ├── Mass_Matrix.m             # Inertia matrix M(q)
-│   ├── Centripetal_Matrix.m      # Coriolis and centrifugal terms C(q, q̇)
-│   ├── Gravity_Matrix.m          # Gravity vector G(q)
+│   ├── Mass.m             # Inertia matrix M(q)
+│   ├── coriolis_matrix.m      # Coriolis and centrifugal terms C(q, q̇)
+│   ├── Gravity.m          # Gravity vector G(q)
 │   └── fifth_order_trajectory.m  # Jerk-limited trajectory profiles
 ├── robot_simulasyon.gif          # Animation of the simulated motion
 └── LICENSE
