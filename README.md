@@ -1,4 +1,3 @@
-cat << 'EOF' > README.md
 # 2-DOF Planar Robot Manipulator Control Simulation
 
 ![MATLAB](https://img.shields.io/badge/MATLAB-R2020b%2B-orange?style=flat-square&logo=mathworks)
@@ -8,7 +7,7 @@ cat << 'EOF' > README.md
 A MATLAB simulation framework for the dynamic modeling, trajectory planning, and nonlinear control of a 2-DOF planar robotic manipulator. The project implements **Lagrangian mechanics**, **jerk-limited trajectory generation**, and **Computed Torque Control (CTC)** to achieve accurate path tracking under gravitational and inertial coupling effects.
 
 <p align="center">
-  <img src="robot_simulasyon.gif" alt="2-DOF Robotic Arm Simulation" width="600"/>
+  <img src="Robot_Arm_Sm.gif" alt="2-DOF Robotic Arm Simulation" width="650"/>
 </p>
 
 ---
@@ -47,6 +46,26 @@ $$\ddot{e} + K_d \dot{e} + K_p e = 0$$
 
 ---
 
+## Simulation Results
+
+### Workspace & Trajectory Path
+The end-effector follows the planned semi-circular / multi-arc Cartesian trajectory with continuous velocity and acceleration profiles:
+
+<p align="center">
+  <img src="Robot%20Animation.png" alt="End-Effector Workspace Trajectory" width="650"/>
+</p>
+
+### Dynamic Torque & Joint Position Analysis
+Required actuator torques ($\tau_1, \tau_2$) and joint angle profiles ($q_1, q_2$) over the 20-second trajectory:
+
+<p align="center">
+  <img src="Dynamics%20Analysis.png" alt="Dynamics Analysis - Joint Torques and Positions" width="750"/>
+</p>
+
+> A high-resolution video recording of the simulation is also available in [`Robot_Arm_Sİm.mp4`](Robot_Arm_S%C4%B0m.mp4).
+
+---
+
 ## Project Structure
 
 ```text
@@ -57,6 +76,9 @@ $$\ddot{e} + K_d \dot{e} + K_p e = 0$$
 │   ├── Centripetal_Matrix.m       # Computes Coriolis/centrifugal matrix C(q, q_dot)
 │   ├── Gravity_Matrix.m           # Computes gravity vector G(q)
 │   └── fifth_order_trajectory.m   # Generates quintic / S-curve reference trajectories
-├── robot_simulasyon.gif           # Simulation animation output
+├── Dynamics Analysis.png          # Joint torque and position time-history plots
+├── Robot Animation.png            # End-effector trajectory path visualization
+├── Robot_Arm_Sm.gif               # Simulation animation output
+├── Robot_Arm_Sİm.mp4              # High-resolution simulation video
 ├── LICENSE                        # MIT License
 └── README.md
