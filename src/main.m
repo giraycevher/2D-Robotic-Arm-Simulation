@@ -7,6 +7,8 @@ clc;
 clear;
 close all;
 
+addpath(genpath(fullfile(pwd, 'subfolder')));
+rehash;
 %% System Parameters
 % Define link lengths (meters)
 link_length_m = [0.1 0.1];
@@ -92,9 +94,9 @@ for j = 2:size(workspace_traj, 1)
         
         % Calculate Dynamic Matrices (Lagrangian Formulation)
         % Note: Ensure function filenames match these calls (English Standard)
-        M = Mass_matrix(theta2, link_length_m(1), link_length_m(2), m1, m2);
-        C = Centripetal_matrix(theta2, theta1_dot, theta2_dot, link_length_m(1), link_length_m(2), m2);
-        G = Gravity_matrix(theta1, theta2, link_length_m(1), link_length_m(2), m1, m2);
+        M = Mass(theta2, link_length_m(1), link_length_m(2), m1, m2);
+        C = coriolis_matrix(theta2, theta1_dot, theta2_dot, link_length_m(1), link_length_m(2), m2);
+        G = Gravity(theta1, theta2, link_length_m(1), link_length_m(2), m1, m2);
         
         % Torque Equation: tau = M(q)q_ddot + C(q, q_dot) + G(q)
         tau = (M * q_ddot_vec_rad) + C + G;
@@ -153,7 +155,7 @@ for i = 1:skip_rate:size(Q_total, 1)
     theta2_rad = Q_total(i, 2);
     
     % Forward Kinematics for visualization
-    [x1, y1, x2, y2] = get_forward_kinematics(theta1_rad, theta2_rad, link_length_mm(1), link_length_mm(2));
+    [x1, y1, x2, y2] = Forward_kinematics(theta1_rad, theta2_rad, link_length_mm(1), link_length_mm(2));
     
     % Trace Paths
     End_Effector_Path = [End_Effector_Path; x2, y2];
